@@ -20,6 +20,17 @@ Based on the problem statement, the following core features have been implemente
 -   **Voice Integration**
     -   **How it works**: The frontend utilizes the browser's native Web Speech API for both speech-to-text and text-to-speech. This allows candidates to interact with the AI agent using their voice, and hear its responses spoken aloud.
 
+---
+
+### 🎥 Demo Video
+
+Here's a quick demonstration of CodeSage in action:
+
+[**Watch the CodeSage Demo**](https://youtu.be/IpnebJaxouU?si=iIDgRkcvNyvZ7z0n)
+
+---
+
+
 ## 🏗️ Architecture
 
 -   **Backend**:
