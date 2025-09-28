@@ -1,15 +1,24 @@
 # CodeSage: The AI Technical Interviewer
 
-CodeSage is an AI-powered technical interviewer that conducts live, adaptive coding interviews. It analyzes code in real-time, provides context-aware hints, assesses code quality, and generates detailed performance reports.
+CodeSage is an AI-powered platform that conducts live, adaptive coding interviews. It analyzes code in real-time, provides context-aware hints via an AI agent, and assesses code against a variety of metrics.
 
-## ✨ Features
+This project was developed based on the requirements of the Eightfold AI Hackathon, focusing on creating an intelligent and interactive interview experience.
 
--   **Real-time Code Analysis**: Continuously tracks and analyzes code as it's written.
--   **Agentic Hint System**: Adjusts problem difficulty and offers progressive hints.
--   **Deep Code Quality Assessment**: Evaluates style, readability, and adherence to standards.
--   **Multi-language Support**: Python, JavaScript, Java, C++.
--   **Voice Integration**: Speech-to-text and text-to-speech capabilities.
--   **Comprehensive Reporting**: Generates a detailed dashboard for hiring managers.
+## ✨ Implemented Features
+
+Based on the problem statement, the following core features have been implemented:
+
+-   **Real-time Code Execution & Analysis**
+    -   **How it works**: The backend uses a sandboxed environment to securely execute user-submitted code in Python, JavaScript, Java, and C++. A FastAPI WebSocket connection provides immediate feedback on correctness, execution time, and memory usage to the React frontend.
+
+-   **AI Interviewer Agent**
+    -   **How it works**: Leveraging the Google Gemini API, the AI acts as an interactive interviewer. It can process the user's current code and conversation context to provide progressive, helpful hints without giving away the solution. This is managed by the `gemini_service` on the backend.
+
+-   **Interactive Web-Based IDE**
+    -   **How it works**: The frontend is built with React and TypeScript, featuring the Monaco Editor to provide a familiar coding environment. The UI is divided into dedicated panels for the problem description, code editor, and live performance feedback, creating a seamless user experience.
+
+-   **Voice Integration**
+    -   **How it works**: The frontend utilizes the browser's native Web Speech API for both speech-to-text and text-to-speech. This allows candidates to interact with the AI agent using their voice, and hear its responses spoken aloud.
 
 ## 🏗️ Architecture
 
@@ -22,7 +31,6 @@ CodeSage is an AI-powered technical interviewer that conducts live, adaptive cod
 
 -   Python 3.11+
 -   Node.js 18+
--   npm (comes with Node.js)
 -   A Google Gemini API Key ([Get one here](https://makersuite.google.com/app/apikey))
 
 ### 🚀 Quick Start
@@ -34,55 +42,21 @@ CodeSage is an AI-powered technical interviewer that conducts live, adaptive cod
     ```
 
 2.  **Run the installation script:**
-    *   On **macOS/Linux**:
-        ```bash
-        chmod +x install.sh
-        ./install.sh
-        ```
-    *   On **Windows**:
-        ```cmd
-        install.bat
-        ```
-    This will install all dependencies and create a `.env` file in the `backend` directory.
+    *   On **macOS/Linux**: `chmod +x install.sh && ./install.sh`
+    *   On **Windows**: `install.bat`
 
 3.  **Configure your API Key:**
-    *   Open the `backend/.env` file.
-    *   Add your Gemini API key: `GEMINI_API_KEY=your_gemini_api_key_here`
+    *   Open `backend/.env` and add your Gemini API key: `GEMINI_API_KEY=your_key_here`
 
 4.  **Run the application:**
-    *   On **macOS/Linux**:
-        ```bash
-        ./start.sh
-        ```
-    *   On **Windows**:
-        ```cmd
-        start.bat
-        ```
+    *   On **macOS/Linux**: `./start.sh`
+    *   On **Windows**: `start.bat`
 
 5.  **Open your browser** and navigate to `http://localhost:3000`.
 
-## 🎯 Usage
-
--   **Frontend Application**: `http://localhost:3000`
--   **Backend API Docs**: `http://localhost:8000/docs`
-
-The application will guide you to start an interview. Write your code in the editor, run it to see real-time analysis, and interact with the AI assistant via chat or voice.
-
 ## 🔧 Troubleshooting
 
--   **"Command not found"**: Ensure Python and Node.js are installed and their paths are configured in your system's environment variables.
 -   **Dependency Errors**: If you encounter module errors, try removing the `node_modules` (frontend) and `venv` (backend) directories and re-running the installation script.
--   **Port Already in Use**: The app uses ports `3000` and `8000`. If they are occupied, stop the process using them or configure new ports in `backend/.env` and `frontend/vite.config.ts`.
--   **Gemini API Error**: Double-check that your API key in `backend/.env` is correct and valid.
--   **Verification Script**: For a detailed diagnosis, run the verification script:
-    ```bash
-    python verify_installation.py
-    ```
-
-## 🤝 Contributing
-
-1.  Fork the repository.
-2.  Create a feature branch (`git checkout -b feature/YourFeature`).
-3.  Commit your changes (`git commit -m 'Add some feature'`).
-4.  Push to the branch (`git push origin feature/YourFeature`).
-5.  Open a Pull Request.
+-   **Port Already in Use**: The app uses ports `3000` and `8000`. If they are occupied, stop the process using them.
+-   **Gemini API Error**: Ensure your API key in `backend/.env` is correct and valid.
+-   **Verification Script**: For a detailed diagnosis, run `python verify_installation.py`.
