@@ -35,7 +35,7 @@ CodeSage is an AI-powered technical interviewer that conducts live, adaptive cod
 ## 🔧 Prerequisites
 
 ### System Requirements
-- **Operating System**: Windows 10+, macOS 10.14+, or Linux (Ubuntu 18.04+)
+- **Operating System**: Windows 10+, macOS 10.14+, or Linux (Ubuntu 18.04+) 
 - **RAM**: Minimum 4GB, Recommended 8GB+
 - **Storage**: 2GB free space
 - **Internet**: Required for AI API calls
