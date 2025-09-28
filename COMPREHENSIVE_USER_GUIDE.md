@@ -53,7 +53,7 @@ CodeSage is an AI-powered technical interviewer that conducts live, adaptive cod
 ### Step 1: Clone the Repository
 ```bash
 git clone <repository-url>
-cd suwas
+cd CodeSage
 ```
 
 ### Step 2: Backend Setup
@@ -375,7 +375,7 @@ Content-Type: application/json
 
 ### Project Structure
 ```
-suwas/
+CodeSage/
 ├── backend/
 │   ├── app/
 │   │   ├── main.py
@@ -478,7 +478,7 @@ lsof -i :8000
 
 ## 🎉 Quick Start Summary
 
-1. **Clone repository**: `git clone <repo-url> && cd suwas`
+1. **Clone repository**: `git clone <repo-url> && cd CodeSage`
 2. **Run setup**: `python setup.py`
 3. **Configure API key**: Edit `backend/.env` with your Gemini API key
 4. **Start system**: `python start.py`

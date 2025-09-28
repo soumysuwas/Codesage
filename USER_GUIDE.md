@@ -10,7 +10,7 @@ CodeSage is an AI-powered technical interviewer that conducts live, adaptive cod
 ```bash
 # Clone or download the repository
 git clone <repository-url>
-cd suwas
+cd CodeSage
 ```
 
 ### Step 2: Run Automated Setup

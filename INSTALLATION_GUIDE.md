@@ -23,7 +23,7 @@
 ```cmd
 # 1. Clone repository
 git clone <repository-url>
-cd suwas
+cd CodeSage
 
 # 2. Run Windows installer
 install.bat
@@ -91,7 +91,7 @@ npm run dev
 ```bash
 # 1. Clone repository
 git clone <repository-url>
-cd suwas
+cd CodeSage
 
 # 2. Run macOS installer
 chmod +x install.sh
@@ -157,7 +157,7 @@ git --version
 ```bash
 # 1. Clone repository
 git clone <repository-url>
-cd suwas
+cd CodeSage
 
 # 2. Run Linux installer
 chmod +x install.sh
@@ -205,7 +205,7 @@ npm run dev
 ```bash
 # 1. Clone repository
 git clone <repository-url>
-cd suwas
+cd CodeSage
 
 # 2. Create docker-compose.yml
 cat > docker-compose.yml << EOF

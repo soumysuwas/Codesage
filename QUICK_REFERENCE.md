@@ -3,7 +3,7 @@
 ## ⚡ Quick Start (3 Steps)
 ```bash
 # 1. Clone and setup
-git clone <repo-url> && cd suwas
+git clone <repo-url> && cd CodeSage
 python setup.py
 
 # 2. Configure API key
