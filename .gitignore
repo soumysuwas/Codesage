@@ -1,0 +1,7 @@
+# Environment variables
+.env
+.env.*
+!/.env.example
+
+# Specific path for your project's .env
+backend/.env
