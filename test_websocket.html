@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Test</title>
+</head>
+<body>
+    <h1>CodeSage WebSocket Test</h1>
+    <div id="status">Connecting...</div>
+    <div id="messages"></div>
+    <button onclick="sendTestMessage()">Send Test Message</button>
+    <button onclick="sendCodeAnalysis()">Send Code Analysis</button>
+
+    <script>
+        const status = document.getElementById('status');
+        const messages = document.getElementById('messages');
+        
+        const socket = new WebSocket('ws://localhost:8000/ws/test-interview');
+        
+        socket.onopen = function(event) {
+            status.textContent = 'Connected to WebSocket!';
+            status.style.color = 'green';
+            addMessage('Connected to interview session');
+        };
+        
+        socket.onclose = function(event) {
+            status.textContent = 'Disconnected from WebSocket';
+            status.style.color = 'red';
+            addMessage('Disconnected from interview session');
+        };
+        
+        socket.onerror = function(error) {
+            status.textContent = 'WebSocket Error';
+            status.style.color = 'red';
+            addMessage('Error: ' + error);
+        };
+        
+        socket.onmessage = function(event) {
+            addMessage('Received: ' + event.data);
+        };
+        
+        function addMessage(message) {
+            const div = document.createElement('div');
+            div.textContent = new Date().toLocaleTimeString() + ': ' + message;
+            messages.appendChild(div);
+        }
+        
+        function sendTestMessage() {
+            const message = {
+                type: 'send_message',
+                message: 'Hello from test client!',
+                timestamp: new Date().toISOString()
+            };
+            socket.send(JSON.stringify(message));
+            addMessage('Sent: ' + JSON.stringify(message));
+        }
+        
+        function sendCodeAnalysis() {
+            const message = {
+                type: 'analyze_code',
+                code: 'def hello():\n    print("Hello World")',
+                language: 'python',
+                problem_description: 'Test problem',
+                timestamp: new Date().toISOString()
+            };
+            socket.send(JSON.stringify(message));
+            addMessage('Sent code analysis request');
+        }
+    </script>
+</body>
+</html>
